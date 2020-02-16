@@ -28,7 +28,7 @@ questions:
 1. How many airports are there in Malaysia?
 2. What is the distance between the airports in Malaysia?
 3. How many flights are going to land in Malaysian airports the next day from the point of query?
-4. Which data is most congested base on the information gathered in question 3 above?
+4. Which airport is most congested base on the information gathered in question 3 above?
 
 To answer these questions, we built an end-to-end framework with ETL pipelines, database, and analytics platform 
 as seen in [Project Framework](#project-framework) diagram below. _(Admittedly a little over-engineered but, hey! Why not...? :trollface:)_
