@@ -96,7 +96,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 ### Step 1. Initial setup
 1) Install Python 3.6 using [these instructions](https://www.python.org/downloads/).
-   > (Optional) Use a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/))
+   > _(Optional) Use a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/)_
 
 2) Install required libraries:
     ```bash
