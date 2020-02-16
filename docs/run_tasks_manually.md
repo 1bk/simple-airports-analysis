@@ -66,7 +66,7 @@ this documentation will break down the tasks in the script so that it can be run
     # In the ./dbt directory:  
     $ dbt seed --profiles-dir ./
     ```
-    In this step, dbt will upload the `./dbt/data/raw_departures.csv` to the database.
+    In this step, dbt will upload the `./dbt/data/raw_arrivals.csv` to the database.
 
 ### Step 7. DbtRunAnalysis
 - Run dbt that cleans the Arrival data and Transform the tables to its Factual Tables for analytics:
@@ -77,6 +77,6 @@ this documentation will break down the tasks in the script so that it can be run
     In this step, dbt will compile and execute the SQL Query to create:
     - [stg_airports__malaysia_distances](../dbt/models/staging/stg_airports__malaysia_distances.sql) table. 
     - [fct_airports__malaysia_distances_km](../dbt/models/core/fct_airports__malaysia_distances_km.sql) table. 
-    - [stg_departures__malaysia](../dbt/models/staging/stg_departures__malaysia.sql) table. 
-    - [fct_departures__malaysia_summary](../dbt/models/core/fct_departures__malaysia_summary.sql) table. 
+    - [stg_arrivals__malaysia](../dbt/models/staging/stg_arrivals__malaysia.sql) table. 
+    - [fct_arrivals__malaysia_summary](../dbt/models/core/fct_arrivals__malaysia_summary.sql) table. 
 
