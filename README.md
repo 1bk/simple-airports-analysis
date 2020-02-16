@@ -68,7 +68,7 @@ This project was created on macOS. It has not yet been tested on Windows.
 - [Python](https://www.python.org/downloads/) 3.6 or above
     1. _(Optional)_ use a virtual environment - see [this guide](https://docs.python-guide.org/dev/virtualenvs/)
     2. **_Important:_** For libraries, see `requirements.txt`. Includes:
-        - [luigi](Ihttps://pypi.org/project/luigi/) - Workflow Orchestration
+        - [luigi](https://pypi.org/project/luigi/) - Workflow Orchestration
         - [dbt](https://docs.getdbt.com/docs/installation#section-pip) - data build tool _(Data Transformation)_
 
 - [Docker](https://www.docker.com/products/docker-desktop)
@@ -183,7 +183,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 2) Once initialised, visit the local Metabase portal at [http://localhost:3000/](http://localhost:3000/)
 
-3) You will be directed to `http://localhost:12345/setup`, click on `Let's get started`:
+3) You will be directed to `http://localhost:3000/setup`, click on `Let's get started`:
     ![setup-metabase-0](docs/img/setup-metabase-0.png)
 
 4) Fill in your details for you admin account:
