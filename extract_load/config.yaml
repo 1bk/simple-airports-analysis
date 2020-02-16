@@ -1,0 +1,27 @@
+WEBSITE:
+    AIRPORTS: 'https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat'
+    ARRIVALS: 'https://www.flightstats.com/v2/flight-tracker/arrivals'
+
+
+OUTPUT:
+    DIR: './output'
+    FILE_NAME:
+        AIRPORTS: raw_airports.csv
+        ARRIVALS: raw_arrivals.csv
+
+HEADERS: [
+    'Airport_ID',
+    'Name',
+    'City',
+    'Country',
+    'IATA',
+    'ICAO',
+    'Latitude',
+    'Longitude',
+    'Altitude',
+    'Timezone',
+    'DST',
+    'database_time_zone',
+    'Type',
+    'Source',
+]

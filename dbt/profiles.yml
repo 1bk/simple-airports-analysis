@@ -1,0 +1,12 @@
+default:
+  outputs:
+    dev:
+      type: postgres
+      threads: 8
+      host: localhost
+      port: 5432
+      user: postgres
+      pass: docker      # Use environmental variable for Production
+      dbname: postgres
+      schema: public
+  target: dev
