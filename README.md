@@ -87,7 +87,7 @@ We primarily use Airport and Arrival data from these two sources:
 - Arrival Data
     - https://www.flightstats.com/v2/flight-tracker/search
         - Specifically, we will scrape arrival information by looping through this site for each airport 
-        - Example link scraped: https://www.flightstats.com/v2/flight-tracker/departures/BTU/?year=2020&month=2&date=17&hour=6
+        - Example link scraped: https://www.flightstats.com/v2/flight-tracker/arrivals/BTU/?year=2020&month=2&date=17&hour=6
 
 
 
@@ -144,7 +144,7 @@ We primarily use Airport and Arrival data from these two sources:
     > _Notes: This step may take some time since it is running the entire pipeline._
   
     Luigi will work through all the steps as defined in `workflow.py`. 
-    > _(Optional) Luigi has a web interface which can be used to monitor workflow and view dependency graphs as shown below. To replicate, follow [this guide](docs/visualising-luigi.md)_ 
+    > _(Optional) Luigi has a web interface which can be used to monitor workflow and view dependency graphs as shown below. To replicate, follow [this guide](docs/visualising-luigi.md)._ 
 
     ![workflow-visualisation-luigi](docs/img/workflow-visualisation-using-luigi.png)
 
@@ -159,7 +159,7 @@ We primarily use Airport and Arrival data from these two sources:
         - 1 DbtRunAirports()
         - 1 DbtRunAnalysis()
         - 1 DbtSeedAirports()
-        - 1 DbtSeedDepartures()
+        - 1 DbtSeedArrivals()
         ...
     
     This progress looks :) because there were no failed tasks or missing dependencies
@@ -241,7 +241,7 @@ We primarily use Airport and Arrival data from these two sources:
 As this project was only done in more or less 3 days, there were some features or improvements that were not implemented.
 
 Here are a few suggestions:
-- **Use multiprocessing to scrape websites** - Especially for departures data.
+- **Use multiprocessing to scrape websites** - Especially for arrivals data.
 - **Implement the logging module** - Right now, the scripts are using simple print statements. Proper logging will help with debugging.
 - **Data documentation using dbt** - Documentation is important, but it is also a time consuming task.
 - **Use environmental variables for sensitive info** - In particular, passwords. 
