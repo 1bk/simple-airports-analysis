@@ -136,7 +136,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 
 ### Step 2. Running the workflow
-> _This step utilises the Luigi workflow orchestration. To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)_
+> _This step utilises the Luigi workflow orchestration. To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)._
 1) Run the `workflow.py` file which will initiate the luigi workflow orchestration
     ```bash
     $ python workflow.py --local-scheduler DbtRunAnalysis 
