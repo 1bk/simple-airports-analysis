@@ -95,18 +95,18 @@ class DbtRunAirports(luigi.Task):
             outfile.write(exe_cmd)
 
 
-class ScrapeLoadDepartureData(luigi.Task):
+class ScrapeLoadArrivalData(luigi.Task):
 
     def requires(self):
         return DbtRunAirports()
 
     def output(self):
-        return luigi.LocalTarget('4_ScrapeLoadDepartureData.output')
+        return luigi.LocalTarget('4_ScrapeLoadArrivalData.output')
 
     def run(self):
 
         print('=' * 150)
-        print('Scraping and Loading Departure Data - This may take some time...')
+        print('Scraping and Loading Arrival Data - This may take some time...')
         exe_cmd = sp.getoutput('python ./extract_load/arrivals.py')
         print(exe_cmd)
         print('=' * 150)
@@ -117,10 +117,10 @@ class ScrapeLoadDepartureData(luigi.Task):
 
 class DbtSeedArrivals(luigi.Task):
     def requires(self):
-        return ScrapeLoadDepartureData()
+        return ScrapeLoadArrivalData()
 
     def output(self):
-        return luigi.LocalTarget('5_DbtSeedDeparture.output')
+        return luigi.LocalTarget('5_DbtSeedArrival.output')
 
     def run(self):
         exe_cmd = sp.getoutput('cd ./dbt/ && dbt seed --profiles-dir ./')
