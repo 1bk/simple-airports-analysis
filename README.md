@@ -170,7 +170,7 @@ We primarily use Airport and Arrival data from these two sources:
     
     ===== Luigi Execution Summary =====
     ```
-    > _Notes: You can view the 'logs' for each step in the files with `.output` extensions._
+    > _Notes: You can view the 'logs' for each step in the files with `.output` extension._
 
 3) The data should ready in the database as tables and can be viewed using the SQL Client that was installed in 
     [Step 1.5](#step-1-initial-setup) above. 
@@ -183,7 +183,7 @@ We primarily use Airport and Arrival data from these two sources:
     ```bash
     $ docker run -d -p 3000:3000 --name metabase metabase/metabase
     ```
-   > _Wait for a little while as it takes time to initialise. You can use `docker logs -f metabase` to follow the rest of the initialization progress._ 
+   > _Wait a little while as it takes time to initialise. You can use `docker logs -f metabase` to follow the rest of the initialization progress._ 
 
 2) Once initialised, visit the local Metabase portal at [http://localhost:3000/](http://localhost:3000/)
 
