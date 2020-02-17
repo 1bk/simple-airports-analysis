@@ -26,8 +26,9 @@ Simple Airports Analysis - Malaysia
 
 
 ## Introduction
-In this project, we want to run simple analysis on airport and arrival data. We want to answer a few simple 
-questions:
+In this project, we want to run simple analysis on airport and arrival data. 
+
+We want to answer these simple questions:
 1. How many airports are there in Malaysia?
 2. What is the distance between the airports in Malaysia?
 3. How many flights are going to land in Malaysian airports the next day from the point of query?
@@ -69,8 +70,8 @@ This project was created on macOS. It has not yet been tested on Windows.
 ## Requirements
 
 - [Python](https://www.python.org/downloads/) 3.6 or above
-    1. _(Optional)_ use a virtual environment - see [this guide](https://docs.python-guide.org/dev/virtualenvs/)
-    2. **_Important:_** For libraries, used see `requirements.txt`. Includes:
+    1. _(Optional)_ Use a virtual environment - see [this guide](https://docs.python-guide.org/dev/virtualenvs/)
+    2. **_`IMPORTANT`_** - For libraries used, see `requirements.txt`. Includes:
         - [luigi](https://pypi.org/project/luigi/) - Workflow Orchestration
         - [dbt](https://docs.getdbt.com/docs/installation#section-pip) - data build tool _(Data Transformation)_
 
@@ -90,7 +91,7 @@ We primarily use Airport and Arrival data from these two sources:
 - Arrival Data
     - https://www.flightstats.com/v2/flight-tracker/search
         - Specifically, we will scrape arrival information by looping through this site for each airport 
-        - Example link scraped: https://www.flightstats.com/v2/flight-tracker/arrivals/BTU/?year=2020&month=2&date=17&hour=6
+        - Example link scraped: https://www.flightstats.com/v2/flight-tracker/arrivals/KUL/?year=2020&month=2&date=18&hour=6
 
 
 
@@ -101,7 +102,7 @@ We primarily use Airport and Arrival data from these two sources:
 1) Install Python 3.6 using [these instructions](https://www.python.org/downloads/).
    > _(Optional) Use a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/)_
 
-2) Install required libraries:
+2) **_`IMPORTANT`_** - Install required libraries:
     ```bash
     $ pip install -r requirements.txt
     ```
@@ -171,12 +172,12 @@ We primarily use Airport and Arrival data from these two sources:
     ```
     > _Notes: You can view the 'logs' for each step in the files with `.output` extensions._
 
-3) The data should ready in the database as tables and can be viewed using a SQL Client that was installed in 
+3) The data should ready in the database as tables and can be viewed using the SQL Client that was installed in 
     [Step 1.5](#step-1-initial-setup) above. 
 
 
 ### Step 3. Analysis on Metabase
-> _**Optional Step!** Alternatively, the data can be viewed directly using the SQL client as mentioned in [Step 1.5](#step-1-initial-setup)_
+> _**Optional Step!** Alternatively, the data can be viewed directly using the SQL client as mentioned in [Step 1.5](#step-1-initial-setup)._
 
 1) Install Metabase via Docker using the instructions below _([source](https://www.metabase.com/docs/latest/operations-guide/running-metabase-on-docker.html))_:
     ```bash
@@ -189,7 +190,7 @@ We primarily use Airport and Arrival data from these two sources:
 3) You will be directed to `http://localhost:3000/setup`, click on `Let's get started`:
     ![setup-metabase-0](docs/img/setup-metabase-0.png)
 
-4) Fill in your details for you admin account:
+4) Fill in the details for your admin account:
     ![setup-metabase-1](docs/img/setup-metabase-1.png)
 
 5) **Important step** - Use the following database connection configuration to connect Metabase to our Postgres instance in Docker:
