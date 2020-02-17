@@ -20,7 +20,7 @@ Simple Airports Analysis - Malaysia
     - [Step 3. Analysis on Metabase](#step-3-analysis-on-metabase) _(Optional)_
     - [Step 4. Viewing dbt documentation](#step-4-viewing-dbt-documentation) _(Optional)_
     - [Step 5. Done](#step-5-done)
-- [Suggested Improvements](#suggested-improvements)
+- [Future Features and Improvements](#future-features-and-improvements)
 - [Author](#author)
 
 
@@ -242,15 +242,15 @@ We primarily use Airport and Arrival data from these two sources:
 
 
 
-## Suggested Improvements
+## Future Features and Improvements
 As this project was only done in more or less 3 days, there were some features or improvements that were not implemented.
 
 Here are a few suggestions:
-- **Use multiprocessing to scrape websites** - Especially for arrivals data.
-- **Implement the logging module** - Right now, the scripts are using simple print statements. Proper logging will help with debugging.
-- **Data documentation using dbt** - Documentation is important, but it is also a time consuming task.
-- **Use environmental variables for sensitive info** - In particular, passwords. 
-- **Use a more versatile Workflow Orchestration tool** - Luigi is simple and easy to get started. But should consider something like Airflow for more complex workflow and more features. 
+- **Use multiprocessing to scrape websites** - Especially for scraping arrivals data as we loop through multiple airports.
+- **Implement the logging module** - Right now, the scripts are using simple `print` statements. However, proper logging will help with debugging.
+- **Data documentation using dbt** - Documentation is important, but it is also a time consuming task. Whenever possible, we should document as much as possible the tables that were generated. Your downstream consumers will thank you. 
+- **Use environmental variables for sensitive information** - For passwords, in particular. 
+- **Use a more versatile Workflow Orchestration tool** - Luigi is simple and easy to get started. But one should consider alternatives like Airflow which can handle complex workflow and has more features. 
 
 
 
