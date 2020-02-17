@@ -103,7 +103,7 @@ We primarily use Airport and Arrival data from these two sources:
 1) Install Python 3.6 using [these instructions](https://www.python.org/downloads/).
    > _(Optional) Use a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/)_
 
-2) **_`IMPORTANT`_** - Install required libraries:
+2) **_`IMPORTANT`_** - Install required libraries, at the command line:
     ```bash
     $ pip install -r requirements.txt
     ```
@@ -117,7 +117,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 3) Install Docker using [these instructions](https://www.docker.com/products/docker-desktop).
 
-4) Install PostgresSQL via Docker using the instructions below _([source](https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198))_:
+4) Install PostgresSQL via Docker using the instructions below _([source](https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198))_, at the command line:
     ```bash
     $ docker pull postgres
     
@@ -142,7 +142,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 ### Step 2. Running the workflow
 > _This step utilises the Luigi workflow orchestration. To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)._
-1) Run the `workflow.py` file which will initiate the luigi workflow orchestration
+1) Run the `workflow.py` file which will initiate the luigi workflow orchestration, at the command line:
     ```bash
     $ python workflow.py --local-scheduler DbtRunAnalysis 
     ```
@@ -180,18 +180,18 @@ We primarily use Airport and Arrival data from these two sources:
 ### Step 3. Analysis on Metabase
 > _**Optional Step!** Alternatively, the data can be viewed directly using the SQL client as mentioned in [Step 1.5](#step-1-initial-setup)._
 
-1) Install Metabase via Docker using the instructions below _([source](https://www.metabase.com/docs/latest/operations-guide/running-metabase-on-docker.html))_:
+1) Install Metabase via Docker using the instructions below _([source](https://www.metabase.com/docs/latest/operations-guide/running-metabase-on-docker.html))_, at the command line:
     ```bash
     $ docker run -d -p 3000:3000 --name metabase metabase/metabase
     ```
    > _Wait a little while as it takes time to initialise. You can use `docker logs -f metabase` to follow the rest of the initialization progress._ 
 
-2) Once initialised, visit the local Metabase portal at [http://localhost:3000/](http://localhost:3000/)
+2) Once initialised, visit the local Metabase portal at [http://localhost:3000/](http://localhost:3000/).
 
-3) You will be directed to `http://localhost:3000/setup`, click on `Let's get started`:
+3) You will be directed to `http://localhost:3000/setup`, click on `Let's get started`.
     ![setup-metabase-0](docs/img/setup-metabase-0.png)
 
-4) Fill in the details for your admin account:
+4) Fill in the details for your admin account.
     ![setup-metabase-1](docs/img/setup-metabase-1.png)
 
 5) **Important step** - Use the following database connection configuration to connect Metabase to our Postgres instance in Docker:
@@ -207,7 +207,7 @@ We primarily use Airport and Arrival data from these two sources:
 
     ![setup-metabase-2](docs/img/setup-metabase-2.png)
 
-6) Choose your usage data preference:
+6) Choose your usage data preference.
     ![setup-metabase-3](docs/img/setup-metabase-3.png)
 
 7) **Done!** You should see the main Metabase page below which lists the available tables in the Postgres Database that was created in [Step 2](#step-2-running-the-workflow).
