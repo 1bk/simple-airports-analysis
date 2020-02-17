@@ -15,8 +15,11 @@ Simple Airport Analysis - Malaysia
 - [Using this project](#using-this-project)
     - [Step 1. Initial setup](#step-1-initial-setup)
     - [Step 2. Running the workflow](#step-2-running-the-workflow)
+        - Alternatively, to [run tasks manually](docs/run_tasks_manually.md) _(i.e. without using Luigi)_
+        - Optionally, to [replicate Luigi's web visualisation](docs/visualising-luigi.md)
     - [Step 3. Analysis on Metabase](#step-3-analysis-on-metabase) _(Optional)_
     - [Step 4. Viewing dbt documentation](#step-4-viewing-dbt-documentation) _(Optional)_
+    - [Step 5. Done](#step-5-done)
 - [Suggested Improvements](#suggested-improvements)
 - [Author](#author)
 
