@@ -67,7 +67,7 @@ This project was created on macOS. It has not yet been tested on Windows.
 
 - [Python](https://www.python.org/downloads/) 3.6 or above
     1. _(Optional)_ use a virtual environment - see [this guide](https://docs.python-guide.org/dev/virtualenvs/)
-    2. **_Important:_** For libraries, see `requirements.txt`. Includes:
+    2. **_Important:_** For libraries, used see `requirements.txt`. Includes:
         - [luigi](https://pypi.org/project/luigi/) - Workflow Orchestration
         - [dbt](https://docs.getdbt.com/docs/installation#section-pip) - data build tool _(Data Transformation)_
 
@@ -102,7 +102,7 @@ We primarily use Airport and Arrival data from these two sources:
     ```bash
     $ pip install -r requirements.txt
     ```
-   This will install the required Python libraries required for this project:
+   This will install the Python libraries required for this project:
    - [x] `luigi` - for (one-script) workflow orchestration
    - [x] `dbt` - for uploading raw data and data transformation in database
    - [x] `requests` - to scrape websites
