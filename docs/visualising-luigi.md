@@ -22,5 +22,5 @@ Visualising Luigi Workflow Orchestration
 
 ### Step 4. Refresh and view the Luigi web visualiser
 - Go back to [http://localhost:8082](http://localhost:8082) in the browser and refresh the website.
-- You should be able to navigate around and fine the Dependency Graphs for the tasks that are executed. 
+- You should be able to navigate around and find the Dependency Graphs for the tasks that are executed. 
     ![workflow-visualisation-luigi](img/workflow-visualisation-using-luigi.png)
