@@ -38,24 +38,33 @@ To answer these questions, we built an end-to-end framework with ETL pipelines, 
 as seen in the [Project Framework](#project-framework) diagram below. 
 _(Admittedly a little over-engineered but, hey! Why not...? :trollface:)_
 
+The relationship between the tables used to answer the questions above can be visualised using the [Table Lineage](#table-lineage-via-dbt).
+
+We also hosted a version of the [dbt documentation on GitHub][1] which would contain the table descriptions, data 
+dictionaries, and the SQL queries—both raw and compiled—used to generate the tables.
+
+Finally, to visualise the data and help us answer the questions we used Metabase—an open source business intelligence 
+tool—to create a [Analytics Dashboard](#metabase-dashboard). 
+
+***
 
 ### Project Framework
 Covered in Step 1, 2, and 3
 ![airports-analysis-framework](docs/img/airports-analysis-framework.png)
 
 ### Table Lineage (via dbt)
-Covered in Step 4 _**(Optional)**_
-![table-lineage-dbt](docs/img/table-lineage-using-dbt.png)
+Covered in Step 4 _**(Optional)**_ - view the [dbt documentation][1]
+[![table-lineage-dbt](docs/img/table-lineage-using-dbt.png)][1]
 
 ### Table Documentation (via dbt)
-Covered in Step 4 _**(Optional)**_
-![table-lineage-dbt](docs/img/documentation-dbt.png)
+Covered in Step 4 _**(Optional)**_ - view the [dbt documentation][1]
+[![table-lineage-dbt](docs/img/documentation-dbt.png)][1]
 
 ### Metabase Dashboard
 Covered in Step 3 _**(Optional)**_
 ![airport-analysis-metabase](docs/img/airport-analysis-using-metabase.png)
 
-
+***
 
 ## Technology Used
 | **Database**              | **(ETL) Pipeline**          | **Workflow Orchestration** | **Analytics Platform**    |
@@ -236,6 +245,8 @@ We primarily use Airport and Arrival data from these two sources:
     
     If it does not, just navigate to [http://localhost:8080/](http://localhost:8080/).
 
+4) Alternatively, you can view the version we hosted on [GitHub - dbt documentation](https://1bk.github.io/simple-airports-analysis/).
+
 
 ### Step 5. Done 
 :shipit:
@@ -256,3 +267,6 @@ Here are a few suggestions:
 
 ## Author
 - **Lee Boon Keong** - _Feb, 2020_ 
+
+
+[1]: https://1bk.github.io/simple-airports-analysis/
