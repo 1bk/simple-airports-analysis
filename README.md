@@ -43,8 +43,8 @@ The relationship between the tables used to answer the questions above can be vi
 We also hosted a version of the [dbt documentation on GitHub][1] which would contain the table descriptions, data 
 dictionaries, and the SQL queries—both raw and compiled—used to generate the tables.
 
-Finally, to visualise the data and help us answer the questions we used Metabase—an open source business intelligence 
-tool—to create a [Analytics Dashboard](#metabase-dashboard). 
+Finally, to visualise the data and help us answer the questions, we used Metabase—an open source business intelligence 
+tool—to create an [Analytics Dashboard](#metabase-dashboard). 
 
 ***
 
