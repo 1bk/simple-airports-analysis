@@ -57,8 +57,8 @@ Covered in Step 4 _**(Optional)**_ - view the [dbt documentation][1]
 [![table-lineage-dbt](docs/img/table-lineage-using-dbt.png)][1]
 
 ### Table Documentation (via dbt)
-Covered in Step 4 _**(Optional)**_ - view the [dbt documentation][1]
-[![table-lineage-dbt](docs/img/documentation-dbt.png)][1]
+Covered in Step 4 _**(Optional)**_ - view the [dbt documentation][2]
+[![table-lineage-dbt](docs/img/documentation-dbt.png)][2]
 
 ### Metabase Dashboard
 Covered in Step 3 _**(Optional)**_
@@ -270,3 +270,4 @@ Here are a few suggestions:
 
 
 [1]: https://1bk.github.io/simple-airports-analysis/
+[2]: https://1bk.github.io/simple-airports-analysis/#!/model/model.malaysia_airports_analysis.fct_airports__malaysia_distances_km
