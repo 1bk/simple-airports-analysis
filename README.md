@@ -1,6 +1,12 @@
 Simple Airports Analysis - Malaysia
 ==================================
 
+![Made with Python](https://img.shields.io/badge/made%20with-python-blue)
+![Python version](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/1bk/simple-airports-analysis)
+![GitHub repo size](https://img.shields.io/github/repo-size/1bk/simple-airports-analysis)
+[![Website](https://img.shields.io/website?label=dbt%20documentation%20website&url=https%3A%2F%2F1bk.github.io%2Fsimple-airports-analysis%2F)][1]
+![GitHub](https://img.shields.io/github/license/1bk/simple-airports-analysis)
 
 ## Contents
 - [Introduction](#introduction)
