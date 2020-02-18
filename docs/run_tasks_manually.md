@@ -50,7 +50,7 @@ this documentation will break down the tasks in the script so that it can be run
     In this step, dbt will compile and execute the SQL Query to create:
     - [stg_airports](../dbt/models/staging/stg_airports.sql) table. 
 
-### Step 5. ScrapeLoadDepartureData
+### Step 5. ScrapeLoadArrivalData
 - Execute python script to extract arrival data from website link and load into database:
     ```bash
     # In the root of project directory:  
@@ -60,7 +60,7 @@ this documentation will break down the tasks in the script so that it can be run
     to obtain the airport codes (iata/icao) and use them to loop through the arrival data website. 
     > Note: 
 
-### Step 6. DbtSeedDepartures
+### Step 6. DbtSeedArrivals
 - Use dbt to easily seed CSV files stored locally:
     ```bash
     # In the ./dbt directory:  
