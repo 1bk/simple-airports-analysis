@@ -28,7 +28,7 @@ Simple Airports Analysis - Malaysia
 ## Introduction
 In this project, we want to run simple analysis on airport and arrival data. 
 
-We want to answer these simple questions:
+We want to know:
 1. How many airports are there in Malaysia?
 2. What is the distance between the airports in Malaysia?
 3. How many flights are going to land in Malaysian airports the next day from the point of query?
@@ -67,7 +67,7 @@ Covered in Step 3 _**(Optional)**_
 ***
 
 ## Technology Used
-| **Database**              | **(ETL) Pipeline**          | **Workflow Orchestration** | **Analytics Platform**    |
+| **Database**              | **(ETL/ELT) Pipeline**      | **Workflow Orchestration** | **Analytics Platform**    |
 |---------------------------|-----------------------------|----------------------------|---------------------------|
 | Postgres _(using Docker)_ | Python 3.6                  | Luigi _(using Python)_     | Metabase _(using Docker)_ |
 |                           | dbt _(Data Transformation)_ |                            |                           |
@@ -137,7 +137,7 @@ We primarily use Airport and Arrival data from these two sources:
 
 5) Install a suitable SQL Client such as [DBeaver](https://dbeaver.io/download/).
     
-    Use the default connection configuration to verify the database connection and view the data that will be added in the later steps.
+    Use the default connection configuration to verify the database connection and view the data that will be added in the later steps:
     ```yaml
     Host:     localhost 
     Database: postgres
@@ -150,19 +150,22 @@ We primarily use Airport and Arrival data from these two sources:
 
 
 ### Step 2. Running the workflow
-> _This step utilises the Luigi workflow orchestration. To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)._
+> _This step utilises the Luigi workflow orchestration that automates the entire ELT pipeline._
+> 
+> _To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)._
 1) Run the `workflow.py` file which will initiate the luigi workflow orchestration, at the command line:
     ```bash
     $ python workflow.py --local-scheduler DbtRunAnalysis 
     ```
+    Luigi will work through all the steps as defined in `workflow.py`.
+    
     > _Notes: This step may take some time since it is running the entire pipeline._
-  
-    Luigi will work through all the steps as defined in `workflow.py`. 
-    > _(Optional) Luigi has a web interface which can be used to monitor workflow and view dependency graphs as shown below. To replicate, follow [this guide](docs/visualising-luigi.md)._ 
+    > 
+    > _**(Optional)** Luigi has a web interface which can be used to monitor workflow and view dependency graphs as shown below. To replicate, follow [this guide](docs/visualising-luigi.md)._ 
 
     ![workflow-visualisation-luigi](docs/img/workflow-visualisation-using-luigi.png)
 
-2) The following will be returned when the previous step completed successfully:
+2) The following will be returned when the previous step completes successfully:
     ```bash
     INFO: 
     ===== Luigi Execution Summary =====
@@ -180,7 +183,7 @@ We primarily use Airport and Arrival data from these two sources:
     
     ===== Luigi Execution Summary =====
     ```
-    > _Notes: You can view the 'logs' for each step in the files with `.output` extension._
+    > _Notes: You can view the 'logs' for each step in the files with `.output` extension that is generated in the root of the project directory._
 
 3) The data should ready in the database as tables and can be viewed using the SQL Client that was installed in 
     [Step 1.5](#step-1-initial-setup) above. 
