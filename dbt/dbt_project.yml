@@ -31,12 +31,18 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   malaysia_airports_analysis:
-      # Applies to all files under models/example/
+      # Applies to all files under models/core/
       core:
           materialized: table
 
+      # Applies to all files under models/staging/
       staging:
           materialized: view
+
+      # Applies to all files under models/base/
+      base:
+          # this is the default behaviour, but is overridden in the sql file's config()
+          materialized: ephemeral
 
 seeds:
   malaysia_airports_analysis:
