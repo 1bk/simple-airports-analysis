@@ -145,11 +145,14 @@ seeds:
       - name: carrier_name
         description: "The name of the carrier."
 
+      - name: carrier_flightnumber
+        description: "The flight identification number and any additional characters."
+
       - name: airport_fs
-        description: "The Cirium code for the airport, globally unique across time."
+        description: "The Cirium code for the departure airport, globally unique across time."
 
       - name: airport_city
-        description: "The city with which the airport is associated."
+        description: "The city with which the departure airport is associated."
 
       - name: iscodeshare
         description: >
