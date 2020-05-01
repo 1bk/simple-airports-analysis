@@ -83,9 +83,15 @@ models:
 
 
 
-  - name: base_airports
+  - name: base_arrivals__malaysia
     description: |
-      The cleaned version of `raw_airports`.
+      The cleaned version of `raw_arrivals`.
+
+      Transformation made were:
+      - Named table to reflect that data only has Malaysian airports.
+      - Renaming of columns to be more descriptive.
+      - Casting strings columns to proper Postgres type.
+      - Add additional column(s) for more context.
 
       _Note: The default materialisation of this table is `ephemeral`,
       but it is overridden in the SQL to be materialised as a `table` instead.
