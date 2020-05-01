@@ -3,7 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'malaysia_airports_analysis'
-version: '1.0.0'
+version: '1.0.1'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
@@ -31,12 +31,23 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   malaysia_airports_analysis:
-      # Applies to all files under models/example/
+      # Applies to all files under models/core/
       core:
           materialized: table
 
+      # Applies to all files under models/staging/
       staging:
-          materialized: table
+          materialized: view
+
+      # Applies to all files under models/base/
+      base:
+          # this is the default behaviour, but is overridden in the sql file's config()
+          materialized: ephemeral
 
 seeds:
-  quote_columns: False
+  malaysia_airports_analysis:
+    enabled: true
+    schema: seed_data
+    quote_columns: False
+    tags:
+      - raw
