@@ -1,2 +1,2 @@
 exclude:
-  - 'overview.md'
+  - 'dbt/models/overview.md'
