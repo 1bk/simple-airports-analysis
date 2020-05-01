@@ -8,7 +8,7 @@
             "{{ index(this, 'type') }}",
         ],
         "tags": [
-            "cleaned_airports",
+            "cleaned",
         ],
     })
 }}
