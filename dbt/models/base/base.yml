@@ -3,7 +3,12 @@ version: 2
 
 models:
   - name: base_airports
-    description: "The cleaned version of `raw_airports`."
+    description: |
+      The cleaned version of `raw_airports`.
+
+      _Note: The default materialisation of this table is `ephemeral`,
+      but it is overridden in the SQL to be materialised as a `table` instead.
+      This is so that indexes can be assigned._
 
     columns:
       - name: airport_id
