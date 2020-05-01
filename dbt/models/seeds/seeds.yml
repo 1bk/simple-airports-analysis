@@ -6,7 +6,7 @@ seeds:
     description: |
       The OpenFlights Airports Database. See [source](https://openflights.org/data.html).
 
-      Note: this table was seeded
+      _Note: this table was seeded._
 
     columns:
       - name: airport_id
