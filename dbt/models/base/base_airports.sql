@@ -8,7 +8,7 @@
             "{{ index(this, 'type') }}",
         ],
         "tags": [
-            "cleaned_airports",
+            "cleaned",
         ],
     })
 }}
@@ -36,8 +36,10 @@ cleaned as (
         {{ rm_quotes('database_time_zone')}},
         {{ rm_quotes('type')}},
         {{ rm_quotes('source')}}
+
     from
         raw_airports
+
 )
 
 select * from cleaned

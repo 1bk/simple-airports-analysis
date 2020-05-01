@@ -8,5 +8,5 @@ default:
       user: postgres
       pass: docker      # Use environmental variable for Production
       dbname: postgres
-      schema: public
+      schema: analysis
   target: dev

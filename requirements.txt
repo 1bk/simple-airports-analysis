@@ -4,4 +4,4 @@ requests==2.22.0
 typing==3.7.4.1
 luigi==2.8.11
 PyYAML==5.3
-dbt==0.15.2
+dbt==0.16.1
