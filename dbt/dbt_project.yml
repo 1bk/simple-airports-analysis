@@ -49,5 +49,9 @@ seeds:
     enabled: true
     schema: seed_data
     quote_columns: False
-    tags:
-      - raw
+
+    # Tagging disabled for seeds tables as it causes
+    # the seeds table to not appear in the Lineage Graph
+    # TODO: raise a ticket for dbt team
+    # tags:
+    #  - raw
