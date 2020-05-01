@@ -46,8 +46,10 @@ base_area as (
     select
         *,
         sin(lat_dist / 2) * sin(lat_dist / 2)
-            + ((a_lat) * pi() / 180) * ((b_lat) * pi() / 180)
-                * sin(lon_dist / 2) * sin(lon_dist / 2)     as area
+            + ((a_lat) * pi() / 180)
+                * ((b_lat) * pi() / 180)
+                    * sin(lon_dist / 2)
+                        * sin(lon_dist / 2)     as area
 
     from
         base_dist
