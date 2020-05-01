@@ -20,7 +20,7 @@ models:
       - name: country
         description: >
           Country or territory where airport is located.
-          See Countries to cross-reference to ISO 3166-1 codes.
+          See [Countries](https://openflights.org/data.html#country) to cross-reference to ISO 3166-1 codes.
 
       - name: iata
         description: "3-letter IATA code. `Null` if not assigned/unknown."
