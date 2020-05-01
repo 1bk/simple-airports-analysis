@@ -36,7 +36,7 @@ models:
           materialized: table
 
       staging:
-          materialized: table
+          materialized: view
 
 seeds:
   malaysia_airports_analysis:
