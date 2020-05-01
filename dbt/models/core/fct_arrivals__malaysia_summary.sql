@@ -13,15 +13,15 @@ with base_airports as (
 
 ),
 
-stg_arrivals__malaysia as (
+base_arrivals__malaysia as (
 
-    select * from {{ ref('stg_arrivals__malaysia') }}
+    select * from {{ ref('base_arrivals__malaysia') }}
 
 ),
 
 latest_arrival_date as (
 
-    select max(arrival_date) as arrival_date from stg_arrivals__malaysia
+    select max(arrival_date) as arrival_date from base_arrivals__malaysia
 
 ),
 
@@ -35,7 +35,7 @@ aggregate as (
         count(*) as flight_count
 
     from
-        stg_arrivals__malaysia
+        base_arrivals__malaysia
 
     where
         is_code_share is null
