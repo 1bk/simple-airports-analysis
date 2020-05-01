@@ -6,9 +6,9 @@
     )
 }}
 
-with stg_airports as (
+with base_airports as (
 
-    select * from {{ ref('stg_airports') }}
+    select * from {{ ref('base_airports') }}
 
 ),
 
@@ -24,8 +24,8 @@ base_dist as (
         (b.latitude - a.latitude) * pi() / 180 as lat_dist,
         (b.longitude - a.longitude) * pi() / 180 as lon_dist
     from
-        stg_airports a
-    cross join stg_airports b
+        base_airports a
+    cross join base_airports b
     where
         a.country = 'Malaysia'
         and b.country = 'Malaysia'

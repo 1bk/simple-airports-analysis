@@ -1,13 +1,15 @@
 {{
     config(
         materialized="table",
-        tags=["arrivals",]
+        tags=[
+            "arrivals",
+        ]
     )
 }}
 
-with stg_airports as (
+with base_airports as (
 
-    select * from {{ ref('stg_airports') }}
+    select * from {{ ref('base_airports') }}
 
 ),
 
@@ -43,7 +45,7 @@ final as (
         a.longitude,
         coalesce(b.flight_count, 0) as "flight_count"
     from
-        stg_airports a
+        base_airports a
     left join
         aggregate b
     on
