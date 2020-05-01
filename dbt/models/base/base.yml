@@ -26,7 +26,7 @@ models:
         description: "3-letter IATA code. `Null` if not assigned/unknown."
 
       - name: icao
-        description: "4-letter ICAO code. Null if not assigned."
+        description: "4-letter ICAO code. `Null` if not assigned."
 
       - name: latitude
         description: "Decimal degrees, usually to six significant digits. Negative is South, positive is North."
