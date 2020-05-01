@@ -3,7 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'malaysia_airports_analysis'
-version: '1.0.0'
+version: '1.0.1'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
@@ -39,4 +39,9 @@ models:
           materialized: table
 
 seeds:
-  quote_columns: False
+  malaysia_airports_analysis:
+    enabled: true
+    schema: seed_data
+    quote_columns: False
+    tags:
+      - raw
