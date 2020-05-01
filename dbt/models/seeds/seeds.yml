@@ -29,7 +29,7 @@ seeds:
         description: "3-letter IATA code. `Null` if not assigned/unknown."
 
       - name: icao
-        description: "4-letter ICAO code. Null if not assigned."
+        description: "4-letter ICAO code. `Null` if not assigned."
 
       - name: latitude
         description: "Decimal degrees, usually to six significant digits. Negative is South, positive is North."
@@ -78,3 +78,85 @@ seeds:
           "User" for unverified user contributions.
 
           In this table, only source=OurAirports is included.
+
+
+
+  - name: raw_arrivals
+    description: |
+      The arrivals data scrapped from [FlightStats](https://www.flightstats.com/v2/flight-tracker/search).
+
+      In this table, only Malaysian aiports arrival data is included for the day the pipelines was triggered.
+
+      Column descriptions were partially populated using information in
+      [this documentation](https://developer.flightstats.com/api-docs/scheduledFlights/v1/scheduledFlightResponse).
+
+    columns:
+      - name: sorttime
+        description: "The timestamp that FlightStats uses to sort flights in their system."
+
+      - name: operatedby
+        description: "A description of the flight operator and on behalf of other airlines, if any."
+
+      - name: url
+        description: >
+          The URL prefix which can be concatenated with `https://www.flightstats.com/v2`
+          that will be directed to the respective flight status page.
+        tests:
+          - not_null
+          - unique
+
+      - name: date
+        description: "The arrival date string with the format `%d-%m-%Y`."
+
+      - name: iata
+        description: "3-letter IATA code for the arrival airport."
+
+      - name: icao
+        description: "4-letter ICAO code for the arrival airport."
+
+      - name: airport_name
+        description: "The name of the arrival (destination) airport."
+        tests:
+          - not_null
+
+      - name: departuretime_timeampm
+        description: >
+          The published departure time (local to the airport) for the flight
+          provided by the airline's operating schedule in AM/PM.
+
+      - name: departuretime_time24
+        description: >
+          The published departure time (local to the airport) for the flight
+          provided by the airline's operating schedule in 24-hour military time.
+
+      - name: arrivaltime_timeampm
+        description: >
+          The published arrival time (local to the airport) for the flight
+          provided by the airline's operating schedule in AM/PM.
+
+      - name: arrivaltime_time24
+        description: >
+          The published arrival time (local to the airport) for the flight
+          provided by the airline's operating schedule in 24-hour military time.
+
+      - name: carrier_fs
+        description: "The Cirium code for the carrier, globally unique across time."
+
+      - name: carrier_name
+        description: "The name of the carrier."
+
+      - name: airport_fs
+        description: "The Cirium code for the airport, globally unique across time."
+
+      - name: airport_city
+        description: "The city with which the airport is associated."
+
+      - name: iscodeshare
+        description: >
+          Boolean value indicating if the marketed flight is a
+          [codeshare](http://en.wikipedia.org/wiki/Codeshare_agreement)
+        tests:
+          - accepted_values:
+              values:
+                - "true"
+                - "false"
