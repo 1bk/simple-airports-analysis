@@ -21,7 +21,7 @@ stg_arrivals__malaysia as (
 
 latest_arrival_date as (
 
-    select max(arrival_date) as latest from stg_arrivals__malaysia
+    select max(arrival_date) as arrival_date from stg_arrivals__malaysia
 
 ),
 
@@ -67,7 +67,7 @@ final as (
         a.country = 'Malaysia'
     and
         b.arrival_date in (
-            select latest from latest_arrival_date
+            select arrival_date from latest_arrival_date
         )
 
 )
