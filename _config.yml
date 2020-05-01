@@ -1,2 +1,3 @@
 exclude:
   - 'dbt/models/overview.md'
+theme: jekyll-theme-slate
