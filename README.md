@@ -278,5 +278,5 @@ Here are a few suggestions:
 - **Lee Boon Keong** - _Feb, 2020_ 
 
 
-[1]: https://1bk.github.io/simple-airports-analysis/
-[2]: https://1bk.github.io/simple-airports-analysis/#!/model/model.malaysia_airports_analysis.fct_airports__malaysia_distances_km
+[1]: https://1bk.github.io/simple-airports-analysis/dbt/docs
+[2]: https://1bk.github.io/simple-airports-analysis/dbt/docs/#!/model/model.malaysia_airports_analysis.fct_airports__malaysia_distances_km
