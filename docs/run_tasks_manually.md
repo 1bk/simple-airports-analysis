@@ -48,7 +48,7 @@ this documentation will break down the tasks in the script so that it can be run
     $ dbt run --profiles-dir ./ --model tag:cleaned_airports
     ```
     In this step, dbt will compile and execute the SQL Query to create:
-    - [stg_airports](../dbt/models/staging/stg_airports.sql) table. 
+    - [base_airports](../dbt/models/base/base_airports.sql) table. 
 
 ### Step 5. ScrapeLoadArrivalData
 - Execute python script to extract arrival data from website link and load into database:
@@ -75,8 +75,8 @@ this documentation will break down the tasks in the script so that it can be run
     $ dbt run --profiles-dir ./ --exclude tag:cleaned_airports
     ```
     In this step, dbt will compile and execute the SQL Query to create:
+    - [base_arrivals__malaysia](../dbt/models/base/base_arrivals__malaysia.sql) table. 
     - [stg_airports__malaysia_distances](../dbt/models/staging/stg_airports__malaysia_distances.sql) table. 
     - [fct_airports__malaysia_distances_km](../dbt/models/core/fct_airports__malaysia_distances_km.sql) table. 
-    - [stg_arrivals__malaysia](../dbt/models/staging/stg_arrivals__malaysia.sql) table. 
     - [fct_arrivals__malaysia_summary](../dbt/models/core/fct_arrivals__malaysia_summary.sql) table. 
 
