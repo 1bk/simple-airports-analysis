@@ -289,3 +289,4 @@ Temporary Items
 # custom
 *.output
 *_bak
+*_bak*
