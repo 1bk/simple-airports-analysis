@@ -1,3 +1,16 @@
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-relative-links
+  - github-pages
+
+relative_links:
+  enabled: true
+  collections: true
+
 exclude:
   - 'dbt/models/overview.md'
-theme: jekyll-theme-slate
+  -  venv/
+
+include:
+  - README.md
