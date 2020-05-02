@@ -1,15 +1,43 @@
-Welcome to your new dbt project!
+> <a href="https://1bk.github.io/simple-airports-analysis/dbt/docs"><img src="/docs/img/dbt_logo.png" width="200" alt="dbt_logo" /></a>
+>
+> ## _**Looking for the &#128073; [dbt documentation website](https://1bk.github.io/simple-airports-analysis/dbt/docs) &#128072; instead?**_
 
-### Using the starter project
+# Simple Airports Analysis - Malaysia  
 
-Try running the following commands:
-- dbt run
-- dbt test
+### Structure
+```
+M  D  ./models
+      ├── base
+T [x] │   ├── base_airports
+T [x] │   └── base_arrivals__malaysia
+      ├── core
+T [x] │   ├── fct_airports__malaysia_distances_km
+T [x] │   └── fct_arrivals__malaysia_summary
+      └── staging
+V [ ]     └── stg_airports__malaysia_distances
+```
+#### Descriptions
+Documentation (`D`):
+- `[x]` = Documented
+- `[ ]` = Not Documented
+
+Materialization (`M`):
+- `T` = Table
+- `E` = Ephemeral
+- `V` = View (non-binding)
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/overview)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+### More information
+
+#### Github Repository
+- [Simple Airports Analysis]
+
+#### dbt_
+- [What is dbt]?
+- [Installation]?
+
+
+[Simple Airports Analysis]:<https://github.com/1bk/simple-airports-analysis/>
+[What is dbt]:<https://docs.getdbt.com/docs/overview>
+[Installation]:<https://docs.getdbt.com/docs/installation>
+
