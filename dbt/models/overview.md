@@ -2,6 +2,9 @@
 
 # Simple Airports Analysis - Malaysia 
 
+### Github Repository
+- [Simple Airports Analysis]
+
 ### Structure
 ```
 M  D  ./models
@@ -26,9 +29,6 @@ Materialization (`M`):
 
 
 ### More information
-
-#### Github Repository
-- [Simple Airports Analysis]
 
 #### dbt_
 - [What is dbt]?
