@@ -1,5 +1,11 @@
 {% docs __overview__ %}
 
+<div style="position: center; background: #FEFAE8; border: 3px solid #F29D41; margin: 10px; padding: 10px; text-align: center">
+    <h2 style="color: #F29D41"> dbt_ Intro</h2>
+    <p style="font-size: 16px; font-style: italic;">Want to learn more about dbt?<br>
+    Check out [the presentation I gave for Data Council KL #6](https://dc-dbt.1bk.dev)!</p> &#128515;
+</div>
+
 # Simple Airports Analysis - Malaysia 
 
 ### Github Repository
