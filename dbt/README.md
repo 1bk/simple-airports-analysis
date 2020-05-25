@@ -1,4 +1,4 @@
-> <a href="https://1bk.github.io/simple-airports-analysis/dbt/docs"><img src="/docs/img/dbt_logo.png" width="200" alt="dbt_logo" /></a>
+> <a href="https://1bk.github.io/simple-airports-analysis/dbt/docs"><img src="https://1bk.github.io/simple-airports-analysis/docs/img/dbt_logo.png" width="200" alt="dbt_logo" /></a>
 >
 > ## _**Looking for the &#128073; [dbt documentation website](https://1bk.github.io/simple-airports-analysis/dbt/docs) &#128072; instead?**_
 
