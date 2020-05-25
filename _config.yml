@@ -1,12 +1,14 @@
 theme: jekyll-theme-cayman
 
+baseurl: "/simple-airports-analysis"
+
 plugins:
   - jekyll-relative-links
   - github-pages
 
 relative_links:
   enabled: true
-  collections: true
+  collections: false
 
 exclude:
   - 'dbt/models/overview.md'
