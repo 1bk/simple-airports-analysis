@@ -8,8 +8,19 @@ Created on 16 February 2020
 
 import os
 import subprocess as sp
+import sys
 
 import luigi
+
+
+def execute_command(command):
+    try:
+        result = sp.run(command, stdout=sp.PIPE, stderr=sp.PIPE, text=True, shell=True, check=True)
+        return result.stdout
+    except sp.CalledProcessError as e:
+        print(f'Error: Command exited with code {e.returncode}\n{e.stderr}', file=sys.stderr)
+        sys.exit(e.returncode)
+
 
 # A hacky way to allow rerunning of workflow.py
 print('Clearing root directory of .output files.')
@@ -31,7 +42,7 @@ class ExtractLoadAirportData(luigi.Task):
         return luigi.LocalTarget('0_ExtractLoadAirportData.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('python ./extract_load/airports.py')
+        exe_cmd = execute_command('python ./extract_load/airports.py')
 
         print('=' * 150)
         print(exe_cmd)
@@ -49,7 +60,7 @@ class DbtDeps(luigi.Task):
         return luigi.LocalTarget('1_DbtDeps.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('cd ./dbt/ && dbt deps')
+        exe_cmd = execute_command('cd ./dbt/ && dbt deps')
 
         print('=' * 150)
         print(exe_cmd)
@@ -67,7 +78,7 @@ class DbtSeedAirports(luigi.Task):
         return luigi.LocalTarget('2_DbtSeedAirports.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('cd ./dbt/ && dbt seed --profiles-dir ./')
+        exe_cmd = execute_command('cd ./dbt/ && dbt seed --profiles-dir ./')
 
         print('=' * 150)
         print(exe_cmd)
@@ -85,7 +96,7 @@ class DbtRunAirports(luigi.Task):
         return luigi.LocalTarget('3_DbtRunAirports.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('cd ./dbt/ && dbt run --profiles-dir ./ --model tag:cleaned_airports')
+        exe_cmd = execute_command('cd ./dbt/ && dbt run --profiles-dir ./ --model tag:cleaned_airports')
 
         print('=' * 150)
         print(exe_cmd)
@@ -107,7 +118,7 @@ class ScrapeLoadArrivalData(luigi.Task):
 
         print('=' * 150)
         print('Scraping and Loading Arrival Data - This may take some time...')
-        exe_cmd = sp.getoutput('python ./extract_load/arrivals.py')
+        exe_cmd = execute_command('python ./extract_load/arrivals.py')
         print(exe_cmd)
         print('=' * 150)
 
@@ -123,7 +134,7 @@ class DbtSeedArrivals(luigi.Task):
         return luigi.LocalTarget('5_DbtSeedArrival.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('cd ./dbt/ && dbt seed --profiles-dir ./')
+        exe_cmd = execute_command('cd ./dbt/ && dbt seed --profiles-dir ./')
 
         print('=' * 150)
         print(exe_cmd)
@@ -141,7 +152,7 @@ class DbtRunAnalysis(luigi.Task):
         return luigi.LocalTarget('6_DbtRunAnalysis.output')
 
     def run(self):
-        exe_cmd = sp.getoutput('cd ./dbt/ && dbt run --profiles-dir ./ --exclude tag:cleaned_airports')
+        exe_cmd = execute_command('cd ./dbt/ && dbt run --profiles-dir ./ --exclude tag:cleaned_airports')
 
         print('=' * 150)
         print(exe_cmd)
@@ -153,3 +164,4 @@ class DbtRunAnalysis(luigi.Task):
 
 if __name__ == '__main__':
     luigi.run()
+
