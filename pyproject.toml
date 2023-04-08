@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "simple-airports-analysis"
+version = "0.2.0"
+description = "A Python project for simple analysis of airport data in Malaysia, including ETL pipelines, a database, and a Metabase dashboard. The project utilizes Luigi for workflow orchestration and dbt for data transformation."
+authors = ["1bk <l.boon.keong@gmail.com>"]
+readme = "README.md"
+packages = [{include = "simple_airports_analysis"}]
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+sqlalchemy = "1.3.10"
+requests = "2.22.0"
+typing = "3.7.4.1"
+luigi = "2.8.11"
+pyyaml = "5.4"
+pandas = "1.3.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
