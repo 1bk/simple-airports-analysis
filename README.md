@@ -114,15 +114,19 @@ We primarily use Airport and Arrival data from these two sources:
 
 ## Using this project
 
+
 ### Step 1. Initial setup
 1) Install Python 3.6 using [these instructions](https://www.python.org/downloads/).
    > _(Optional) Use a [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/)_
 
-2) **_`IMPORTANT`_** - Install required libraries, at the command line:
+2) Install Poetry using the [official documentation](https://python-poetry.org/docs/#installation)
+   > Suggestion: use Homebrew to install
+
+3) **_`IMPORTANT`_** - Install required libraries using Poetry, at the command line:
     ```bash
-    $ pip install -r requirements.txt
+    $ poetry install
     ```
-   This will install the Python libraries required for this project:
+   This will install the Python libraries required for this project in a virtual environment.
    - [x] `luigi` - for (one-script) workflow orchestration
    - [x] `dbt` - for uploading raw data and data transformation in database
    - [x] `requests` - to scrape websites
@@ -159,6 +163,10 @@ We primarily use Airport and Arrival data from these two sources:
 > _This step utilises the Luigi workflow orchestration that automates the entire ELT pipeline._
 > 
 > _To run each tasks in the workflow manually, see [this guide](docs/run_tasks_manually.md)._
+0) Activate the virtual environment by running the following command:
+    ```bash
+    $ poetry shell
+    ```
 1) Run the `workflow.py` file which will initiate the luigi workflow orchestration, at the command line:
     ```bash
     $ python workflow.py --local-scheduler DbtRunAnalysis 
