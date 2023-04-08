@@ -3,5 +3,5 @@ pandas==0.25.3
 requests==2.22.0
 typing==3.7.4.1
 luigi==2.8.11
-PyYAML==5.3
+PyYAML==5.4
 dbt==0.16.1
