@@ -32,134 +32,81 @@ for file in os.listdir(os.path.abspath(os.path.dirname(__file__))):
         except Exception as e:
             print(f'\t >>> Could not delete "{file}"! Please manually delete.')
 
+class CliTask(luigi.Task):
+    cmd = None
+    output_filename = None
 
-class ExtractLoadAirportData(luigi.Task):
+    def output(self):
+        return luigi.LocalTarget(self.output_filename)
+
+    def run(self):
+        if self.cmd:
+            exe_cmd = execute_command(self.cmd)
+
+            print('=' * 150)
+            print(exe_cmd)
+            print('=' * 150)
+
+            with self.output().open('w') as outfile:
+                outfile.write(exe_cmd)
+        else:
+            raise NotImplementedError("Please specify a command to run in the 'cmd' attribute.")
+
+
+class ExtractLoadAirportData(CliTask):
+    cmd = 'python ./extract_load/airports.py'
+    output_filename = '0_ExtractLoadAirportData.output'
 
     def requires(self):
         return None
 
-    def output(self):
-        return luigi.LocalTarget('0_ExtractLoadAirportData.output')
 
-    def run(self):
-        exe_cmd = execute_command('python ./extract_load/airports.py')
+class DbtDeps(CliTask):
+    cmd = 'cd ./dbt/ && dbt deps'
+    output_filename = '1_DbtDeps.output'
 
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class DbtDeps(luigi.Task):
     def requires(self):
         return ExtractLoadAirportData()
 
-    def output(self):
-        return luigi.LocalTarget('1_DbtDeps.output')
 
-    def run(self):
-        exe_cmd = execute_command('cd ./dbt/ && dbt deps')
+class DbtSeedAirports(CliTask):
+    cmd = 'cd ./dbt/ && dbt seed --profiles-dir ./'
+    output_filename = '2_DbtSeedAirports.output'
 
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class DbtSeedAirports(luigi.Task):
     def requires(self):
         return DbtDeps()
 
-    def output(self):
-        return luigi.LocalTarget('2_DbtSeedAirports.output')
 
-    def run(self):
-        exe_cmd = execute_command('cd ./dbt/ && dbt seed --profiles-dir ./')
+class DbtRunAirports(CliTask):
+    cmd = 'cd ./dbt/ && dbt run --profiles-dir ./ --model tag:cleaned_airports'
+    output_filename = '3_DbtRunAirports.output'
 
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class DbtRunAirports(luigi.Task):
     def requires(self):
         return DbtSeedAirports()
 
-    def output(self):
-        return luigi.LocalTarget('3_DbtRunAirports.output')
 
-    def run(self):
-        exe_cmd = execute_command('cd ./dbt/ && dbt run --profiles-dir ./ --model tag:cleaned_airports')
-
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class ScrapeLoadArrivalData(luigi.Task):
+class ScrapeLoadArrivalData(CliTask):
+    cmd = 'python ./extract_load/arrivals.py'
+    output_filename = '4_ScrapeLoadArrivalData.output'
 
     def requires(self):
         return DbtRunAirports()
 
-    def output(self):
-        return luigi.LocalTarget('4_ScrapeLoadArrivalData.output')
 
-    def run(self):
+class DbtSeedArrivals(CliTask):
+    cmd = 'cd ./dbt/ && dbt seed --profiles-dir ./'
+    output_filename = '5_DbtSeedArrival.output'
 
-        print('=' * 150)
-        print('Scraping and Loading Arrival Data - This may take some time...')
-        exe_cmd = execute_command('python ./extract_load/arrivals.py')
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class DbtSeedArrivals(luigi.Task):
     def requires(self):
         return ScrapeLoadArrivalData()
 
-    def output(self):
-        return luigi.LocalTarget('5_DbtSeedArrival.output')
 
-    def run(self):
-        exe_cmd = execute_command('cd ./dbt/ && dbt seed --profiles-dir ./')
+class DbtRunAnalysis(CliTask):
+    cmd = 'cd ./dbt/ && dbt run --profiles-dir ./ --exclude tag:cleaned_airports'
+    output_filename = '6_DbtRunAnalysis.output'
 
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
-
-
-class DbtRunAnalysis(luigi.Task):
     def requires(self):
         return DbtSeedArrivals()
-
-    def output(self):
-        return luigi.LocalTarget('6_DbtRunAnalysis.output')
-
-    def run(self):
-        exe_cmd = execute_command('cd ./dbt/ && dbt run --profiles-dir ./ --exclude tag:cleaned_airports')
-
-        print('=' * 150)
-        print(exe_cmd)
-        print('=' * 150)
-
-        with self.output().open('w') as outfile:
-            outfile.write(exe_cmd)
 
 
 if __name__ == '__main__':
