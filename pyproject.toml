@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simple-airports-analysis"
-version = "0.2.0"
+version = "0.3.0"
 description = "A Python project for simple analysis of airport data in Malaysia, including ETL pipelines, a database, and a Metabase dashboard. The project utilizes Luigi for workflow orchestration and dbt for data transformation."
 authors = ["1bk <l.boon.keong@gmail.com>"]
 readme = "README.md"
